@@ -113,7 +113,7 @@ describe('to_markdown', function() {
     });
     it('should convert ordered lists properly', function() {
         var markdown = j2m.to_markdown("# Foo\n# Bar\n# Baz\n## FooBar\n## BarBaz\n### FooBarBaz\n# Starting Over");
-        markdown.should.eql("1. Foo\n1. Bar\n1. Baz\n  1. FooBar\n  1. BarBaz\n    1. FooBarBaz\n1. Starting Over");
+        markdown.should.eql("1. Foo\n1. Bar\n1. Baz\n    1. FooBar\n    1. BarBaz\n        1. FooBarBaz\n1. Starting Over");
     });
     it('should handle bold AND italic (combined) correctly', function() {
         var markdown = j2m.to_markdown("This is _*emphatically bold*_!");

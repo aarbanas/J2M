@@ -1,17 +1,17 @@
-var marked = require('marked');
+const marked = require('marked');
 marked.setOptions({
 	breaks: true,
 	smartyPants: true
 });
 
-var J2M = function() {};
+const J2M = function() {};
 
 J2M.prototype.md_to_html = function(str) {
-	return marked(str);
+	return marked.parse(str);
 };
 
 J2M.prototype.jira_to_html = function(str) {
-	return marked(this.to_markdown(str));
+	return marked.parse(this.to_markdown(str));
 };
 
 J2M.prototype.to_markdown = function(str) {
@@ -22,7 +22,7 @@ J2M.prototype.to_markdown = function(str) {
         })
         // Un-ordered lists
         .replace(/^[ \t]*(#+)\s+/gm, function(match, nums) {
-            return Array(nums.length).join("  ") + '1. ';
+            return Array(nums.length).join("    ") + '1. ';
         })
         // Headers 1-6
         .replace(/^h([0-6])\.(.*)$/gm, function (match, level, content) {
