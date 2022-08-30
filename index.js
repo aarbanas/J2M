@@ -18,11 +18,11 @@ J2M.prototype.to_markdown = function(str) {
     return str
         // Ordered Lists
         .replace(/^[ \t]*(\*+)\s+/gm, function(match, stars) {
-            return Array(stars.length).join("  ") + '* ';
+            return Array(stars.length).join("   ") + '* ';
         })
         // Un-ordered lists
         .replace(/^[ \t]*(#+)\s+/gm, function(match, nums) {
-            return Array(nums.length).join("    ") + '1. ';
+            return Array(nums.length).join("   ") + '1. ';
         })
         // Headers 1-6
         .replace(/^h([0-6])\.(.*)$/gm, function (match, level, content) {
